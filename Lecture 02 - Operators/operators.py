@@ -93,7 +93,7 @@ x = 21
 # True or False = True
 # False or True = True
 # False or False = False
-
+#
 print(5 > x > 0 and x < 10)
 print(5 < x < 10)
 
@@ -168,3 +168,26 @@ else:
 x = 1
 zero = "Zero" if x == 0 else "Not Zero"
 print(zero)
+
+
+
+#######################################################
+# Nested Operator
+#######################################################
+
+number1 = int(input("Enter a number: "))
+number2 = int(input("Enter a number: "))
+operator = input("Enter a operator: ")
+
+
+if operator == "/":
+    if number2 == 0:
+        print("Cannot Divide By Zero")
+    else:
+        print(number1 / number2)
+else:
+    print("Operator is not /")
+
+
+
+
