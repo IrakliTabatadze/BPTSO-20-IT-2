@@ -2,23 +2,23 @@
 # Dict Creation
 ####################################
 
-# empty_dict = {}
-# empty_dict2 = dict()
-#
-# print(type(empty_dict))
-# print(type(empty_dict2))
+empty_dict = {}
+empty_dict2 = dict()
+
+print(type(empty_dict))
+print(type(empty_dict2))
 
 
-# filled_dict = {'name': 'John', 'age': 25, 'profession': 'Developer'}
-# print(filled_dict['profession'])
-# print(filled_dict['age'])
-# print(filled_dict['name'])
+filled_dict = {'name': 'John', 'age': 25, 'profession': 'Developer'}
+print(filled_dict['profession'])
+print(filled_dict['age'])
+print(filled_dict['name'])
 
-# filled_dict['courses'] = ['Python', 'Java', 'C++']
-# print(filled_dict)
-# filled_dict['courses'] = ['Python', 'C++']
-# filled_dict['courses'].append('IT Step')
-# print(filled_dict)
+filled_dict['courses'] = ['Python', 'Java', 'C++']
+print(filled_dict)
+filled_dict['courses'] = ['Python', 'C++']
+filled_dict['courses'].append('IT Step')
+print(filled_dict)
 
 
 
@@ -26,55 +26,55 @@
 # Dict Methods
 ####################################
 
-# filled_dict = {'name': 'John', 'age': 25, 'profession': 'Developer'}
+filled_dict = {'name': 'John', 'age': 25, 'profession': 'Developer'}
 
-# print(filled_dict['courses'])
-# print(filled_dict.get('names', 'Key doesn\'t exist'))
-# print("Hello")
+print(filled_dict['courses'])
+print(filled_dict.get('names', 'Key doesn\'t exist'))
+print("Hello")
 
-# filled_dict.setdefault('courses', ['Python', 'Java', 'C++'])
-# filled_dict.setdefault('courses', 'This is courses')
-# print(filled_dict)
+filled_dict.setdefault('courses', ['Python', 'Java', 'C++'])
+filled_dict.setdefault('courses', 'This is courses')
+print(filled_dict)
 
-# print(filled_dict.keys())
+print(filled_dict.keys())
 
-# for key in filled_dict.keys():
-#     print(filled_dict[key])
+for key in filled_dict.keys():
+    print(filled_dict[key])
 
-# print(filled_dict.values())
-
-
-# print(filled_dict.items())
-
-# key, value = ['name', 'John']
-# print(key)
-# print(value)
-
-# for key, value in filled_dict.items():
-#     if key == 'name':
-#         print(key, value)
+print(filled_dict.values())
 
 
+print(filled_dict.items())
+
+key, value = ['name', 'John']
+print(key)
+print(value)
+
+for key, value in filled_dict.items():
+    if key == 'name':
+        print(key, value)
 
 
-# filled_dict1 = {'name': 'John', 'age': 25, 'profession': 'Developer'}
-# filled_dict2 = {'name': 'Kate', 'salary': 1000, 'location': 'New York'}
-#
-# filled_dict1.update(filled_dict2)
-# print(filled_dict1)
 
 
-# print(filled_dict1.pop('profession'))
-# print(filled_dict1.popitem())
+filled_dict1 = {'name': 'John', 'age': 25, 'profession': 'Developer'}
+filled_dict2 = {'name': 'Kate', 'salary': 1000, 'location': 'New York'}
 
-# filled_dict1.clear()
-# print(filled_dict1)
+filled_dict1.update(filled_dict2)
+print(filled_dict1)
 
 
-# filled_dict2 = filled_dict1.copy()
-# filled_dict1.clear()
-# print(filled_dict1)
-# print(filled_dict2)
+print(filled_dict1.pop('profession'))
+print(filled_dict1.popitem())
+
+filled_dict1.clear()
+print(filled_dict1)
+
+
+filled_dict2 = filled_dict1.copy()
+filled_dict1.clear()
+print(filled_dict1)
+print(filled_dict2)
 
 
 ####################################
