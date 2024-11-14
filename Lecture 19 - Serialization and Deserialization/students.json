@@ -1,0 +1,22 @@
+[
+    {
+        "name": "Christine",
+        "score": 71,
+        "age": 35
+    },
+    {
+        "name": "Jill",
+        "score": 95,
+        "age": 46
+    },
+    {
+        "name": "Michael",
+        "score": 22,
+        "age": 44
+    },
+    {
+        "name": "Jacob",
+        "score": 6,
+        "age": 39
+    }
+]
