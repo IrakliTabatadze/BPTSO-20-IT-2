@@ -136,4 +136,5 @@ for _ in range(num_threads):
 
 
 for thread in threads:
+    print(thread.name)
     thread.join()
