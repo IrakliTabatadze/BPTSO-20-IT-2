@@ -26,37 +26,56 @@ insert into customer(first_name, last_name, dateofbirth, create_date, salary) va
 
 
 
-
+-- ყველა ჩანაწერის წაკითხვა
 select * from customer
 
+-- ყველა ჩანაწერის წაკითხვა რომლის სახელიც არის John
 select * from customer where first_name = 'John'
+
+-- ყველა ჩანაწერის წაკითხვა რომლის სახელიც არის John(ყურადღება არ ექცევა რეგისტრებს)
 select * from customer where first_name ilike 'john'
+
+-- ყველა ჩანაწერის წაკითხვა რომლის სახელიც იწყება J სიმბოლოზე (ყურადღება ექცევა რეგისტრებს)
 select * from customer where first_name like 'J%'
+
+-- ყველა ჩანაწერის წაკითხვა რომლის სახელიც იწყება J სიმბოლოზე (ყურადღება არ ექცევა რეგისტრებს)
 select * from customer where first_name ilike 'j%'
+
+-- ყველა ჩანაწერის წაკითხვა რომლის გვარიც სრულდება on სიმბოლოებზე (ყურადღება არ ექცევა რეგისტრებს)
 select * from customer where last_name ilike '%on'
+
+-- ყველა ჩანაწერის წაკითხვა რომლის გვარშიც მოხსენიებულია სიმბოლო i (ყურადღება არ ექცევა რეგისტრებს)
 select * from customer where last_name ilike '%i%'
+
+-- ყველა ჩანაწერის წაკითხვა რომლის სახელიც არის John ან დაბადების თარიღი არის 1995 წლის 1 იანვარი
 select * from customer where first_name = 'John' or dateofbirth > '1995-01-01'
 
+-- ყველა ჩანაწერის წაკითხვა რომელშიც შევსებული არ არის გვარის მნიშვნელობა
 select * from customer where last_name is NULL
+
+-- ყველა ჩანაწერის წაკითხვა რომელშიც შევსებული არის გვარის მნიშვნელობა
 select * from customer where last_name is not NULL
 
-
+-- ფილტრაცია თარიღების მიხედვით
 select * from customer where dateofbirth = '1990-05-25'
 select * from customer where dateofbirth < '2000-01-01' and dateofbirth > '1995-01-01'
 select * from customer where dateofbirth < '2000-01-01' or dateofbirth > '1995-01-01'
 select * from customer where dateofbirth between '1995-01-01' and '2000-01-01'
 select * from customer where id between 3 and 7
 
+-- სორტირება და მაქსიმალური რაოდენობის წაკითხვა
 select * from customer order by dateofbirth asc limit 2
 select * from customer where dateofbirth is not NULL order by dateofbirth desc limit 2
 
-
+-- ჩანაწერების განახლება
 update customer set create_date = '2025-01-01'
 update customer set create_date = '2024-10-10' where first_name = 'John'
 
+-- ჩანაწერების წაშლა
 delete from customer where first_name = 'John'
 delete from customer
 
+-- ცხრილის გასუფთავება
 truncate customer
 
 
