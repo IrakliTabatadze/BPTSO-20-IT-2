@@ -1,60 +1,69 @@
+select cityid, avg(income) from customers group by cityid
 
-select * from customers where cityid is not NULL
-
-
-select cityid, sum(income), max(income), min(income), avg(income)
-from customers
-group by cityid
-having cityid in (1, 4, NULL)
+-- select first_name, last_name, avg(income) from customers group by first_name, last_name
 
 
-select
-	cities.cityname,
-	avg(income)
-from customers
-	left join cities on customers.cityid = cities.id
-group by cities.cityname having cityname in ('Tbilisi', 'Telavi')
+select cityname, avg(income) from customers left join cities on customers.cityid = cities.id
+group by cityname
+having cityname in ('Batumi', 'Qutaisi')
 
 
+select id from cities
 
-select * from customers where idnumber in (select distinct(customeridnumber) from accounts)
-select distinct(customeridnumber) from accounts
+select * from customers where cityid not in (select id from cities)
+
+delete from customers where cityid in (select id from cities where cityname='Tbilisi' or cityname='Batumi')
+
+update customers set cityid = null where cityid in (select id from cities where cityname='Tbilisi' or cityname='Batumi')
 
 
 
 create or replace function set_create_date()
 returns trigger as $$
-	BEGIN
-		NEW.create_date = NOW();
+	begin
+		NEW.create_date = now();
 		return NEW;
-	END
-$$ language plpgsql;
-
+	end
+$$
+language plpgsql
 
 
 create trigger set_create_date_trigger
 before insert on customers
 for each row
-execute function set_create_date();
+execute function set_create_date()
 
 
-insert into customers(idnumber, first_name, last_name, cityid) values('101010105','Jack', 'Doe', 2),('101010106','Jack', 'Doe', 2),('101010107','Jack', 'Doe', 2),('101010108','Jack', 'Doe', 2)
+insert into customers(idnumber, first_name) values('13131313', 'Jack')
+
+update customers set cityid = 4 where idnumber='13131313'
+
 
 
 create or replace function set_update_date()
 returns trigger as $$
-	BEGIN
-		NEW.update_date = NOW();
+	begin
+		NEW.update_date = now();
 		return NEW;
-	END
-$$ language plpgsql;
+	end
+$$
+language plpgsql
 
 
 create trigger set_update_date_trigger
 before update on customers
 for each row
-execute function set_update_date();
+execute function set_update_date()
 
 
 
-update customers set income = 10000 where idnumber='101010106'
+
+create view aggregate_view as
+select cityname, avg(income) from customers left join cities on customers.cityid = cities.id
+group by cityname
+having cityname in ('Batumi', 'Qutaisi')
+
+
+select * from aggregate_view
+
+
