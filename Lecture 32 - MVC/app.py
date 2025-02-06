@@ -19,7 +19,10 @@ db.init_app(app)
 
 @app.route('/')
 def index():
-    all_data = Car.query.all()
+    all_data = Car.query.order_by(Car.id).all()
+
+    for i, data in enumerate(all_data, start=1):
+        print(i, data)
 
     return render_template('index.html', cars=all_data)
 
@@ -49,6 +52,23 @@ def delete_car(id):
     db.session.commit()
 
     return redirect(url_for('index'))
+
+
+@app.route('/update/<int:id>', methods=['GET', 'POST'])
+def update_car(id):
+
+    if request.method == 'POST':
+        car = Car.query.get(id)
+
+        car.manufacturer = request.form['manufacturer']
+        car.model = request.form['model']
+        car.instock = request.form['instock']
+        car.price = request.form['price']
+
+        db.session.commit()
+
+        return redirect(url_for('index'))
+
 
 
 
